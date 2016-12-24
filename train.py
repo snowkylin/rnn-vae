@@ -26,7 +26,7 @@ parser.add_argument('--batch_size', type=int, default=100,
                     help='batch size')
 parser.add_argument('--learning_rate', type=float, default=0.001,
                     help='learning rate')
-parser.add_argument('--alpha', type=float, default=1,
+parser.add_argument('--alpha', type=float, default=0.95,
                     help='ratio between re_loss and kl_loss '
                          '(args.alpha * self.re_loss + (1 - args.alpha) * self.kl_loss)')
 parser.add_argument('--num_epochs', type=int, default=20,
