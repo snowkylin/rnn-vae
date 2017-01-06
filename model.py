@@ -28,10 +28,13 @@ class RNN_VAE_Model():
                 h_dec_prev = tf.zeros((args.batch_size, args.dec_size))
             else:
                 c_prev = self.c[t - 1]
-            x_hat = x_reshape - tf.sigmoid(c_prev)
+            c_sigmoid = tf.sigmoid(c_prev)
+            x_hat = x_reshape - c_sigmoid
             with tf.variable_scope("encoder", reuse=DO_SHARE):
                 if args.mode == 'only c_prev':
                     h_enc, enc_state = cell_enc(c_prev, enc_state)
+                if args.mode == 'only c_sigmoid':
+                    h_enc, enc_state = cell_enc(c_sigmoid, enc_state)
                 if args.mode == 'only x_hat':
                     h_enc, enc_state = cell_enc(x_hat, enc_state)
                 if args.mode == 'x with x_hat':
@@ -68,15 +71,15 @@ class CNN_VAE_Model():
         self.args = args
         self.x = tf.placeholder(dtype=tf.float32, shape=[None, args.width, args.height, 1]) # [28 * 28]
 
-        h_conv1 = tf.nn.relu(conv2d(self.x, weight_variable([5, 5, 1, 32]))
-                             + bias_variable([32]))  # [28 * 28 * 32]
+        h_conv1 = tf.nn.relu(conv2d(self.x, weight_variable([5, 5, 1, 16]))
+                             + bias_variable([16]))  # [28 * 28 * 32]
         h_pool1 = max_pool_2x2(h_conv1)  # [14 * 14 * 32]
 
-        h_conv2 = tf.nn.relu(conv2d(h_pool1, weight_variable([5, 5, 32, 64]))
-                             + bias_variable([64]))  # [14 * 14 * 64]
+        h_conv2 = tf.nn.relu(conv2d(h_pool1, weight_variable([5, 5, 16, 8]))
+                             + bias_variable([8]))  # [14 * 14 * 64]
         h_pool2 = max_pool_2x2(h_conv2)  # [7 * 7 * 64]
 
-        h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])  # [3136 (7*7*64)]
+        h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 8])  # [3136 (7*7*64)]
         # h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, weight_variable([7 * 7 * 64, 1024]))
         #                    + bias_variable([1024]))  # [1024]
 
@@ -84,34 +87,34 @@ class CNN_VAE_Model():
         # # 训练时启用dropout减少过拟合，测试时关掉
         # h_fc1_drop = tf.nn.dropout(h_pool2_flat, self.keep_prob)
 
-        mu = tf.matmul(h_pool2_flat, weight_variable([7 * 7 * 64, args.z_size])) \
+        mu = tf.matmul(h_pool2_flat, weight_variable([7 * 7 * 8, args.z_size])) \
                 + bias_variable([args.z_size])  # [z_size]
-        logsigma = tf.matmul(h_pool2_flat, weight_variable([7 * 7 * 64, args.z_size])) \
+        logsigma = tf.matmul(h_pool2_flat, weight_variable([7 * 7 * 8, args.z_size])) \
                             + bias_variable([args.z_size])  # [z_size]
         sigma = tf.exp(logsigma)
 
         e = tf.random_normal((args.batch_size, args.z_size))
         z = mu + sigma * e
 
-        h_fc1 = tf.matmul(z, weight_variable([args.z_size, 7 * 7 * 64])
-                          + bias_variable([7 * 7 * 64]))
-        h_fc2_2dim = tf.reshape(h_fc1, [-1, 7, 7, 64])
+        h_fc1 = tf.matmul(z, weight_variable([args.z_size, 7 * 7 * 8])
+                          + bias_variable([7 * 7 * 8]))
+        h_fc2_2dim = tf.reshape(h_fc1, [-1, 7, 7, 8])
 
-        h_conv3 = tf.nn.relu(conv2d(h_fc2_2dim, weight_variable([5, 5, 64, 32]))
+        h_conv3 = tf.nn.relu(conv2d(h_fc2_2dim, weight_variable([5, 5, 8, 8]))
         # h_conv3 = tf.nn.relu(conv2d(h_pool2, weight_variable([5, 5, 64, 32]))
-                             + bias_variable([32]))     # [7 * 7 * 64]
+                             + bias_variable([8]))     # [7 * 7 * 64]
         h_pool3 = tf.image.resize_images(h_conv3, [14, 14])   # [14 * 14 * 64]
 
-        h_conv4 = tf.nn.relu(conv2d(h_pool3, weight_variable([5, 5, 32, 1]))
-                             + bias_variable([32]))  # [14 * 14 * 32]
+        h_conv4 = tf.nn.relu(conv2d(h_pool3, weight_variable([5, 5, 8, 16]))
+                             + bias_variable([16]))  # [14 * 14 * 32]
         h_pool4 = tf.image.resize_images(h_conv4, [28, 28])  # [28 * 28 * 32]
 
-        self.decoded = tf.nn.sigmoid(conv2d(h_pool4, weight_variable([5, 5, 32, 1]))
+        self.decoded = tf.nn.sigmoid(conv2d(h_pool4, weight_variable([5, 5, 16, 1]))
                              + bias_variable([1]))  # [28 * 28 * 1]
 
         self.re_loss = tf.reduce_mean(-tf.reduce_sum(cross_entropy(self.x, self.decoded), 1))
-        self.kl_loss = 0.5 * (tf.reduce_sum(sigma, 1) + tf.reduce_sum(tf.square(mu, 1))
-                         - tf.reduce_sum(logsigma + 1, 1))
+        self.kl_loss = 0.5 * tf.reduce_mean(tf.reduce_sum(sigma, 1) + tf.reduce_sum(tf.square(mu), 1)
+                              - tf.reduce_sum(logsigma + 1, 1))
 
         self.loss = args.alpha * self.re_loss + (1 - args.alpha) * self.kl_loss
         # self.loss = self.re_loss

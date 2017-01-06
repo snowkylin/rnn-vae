@@ -1,0 +1,250 @@
+/home/snowkylin/anaconda2/envs/tensorflow/bin/python /home/snowkylin/桌面/rnn_vae/train.py
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcublas.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcudnn.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcufft.so locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:111] successfully opened CUDA library libcurand.so locally
+Extracting MNIST_data/train-images-idx3-ubyte.gz
+Extracting MNIST_data/train-labels-idx1-ubyte.gz
+Extracting MNIST_data/t10k-images-idx3-ubyte.gz
+Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:925] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:951] Found device 0 with properties: 
+name: GeForce GTX 1060 6GB
+major: 6 minor: 1 memoryClockRate (GHz) 1.8095
+pciBusID 0000:01:00.0
+Total memory: 5.96GiB
+Free memory: 5.80GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:972] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:982] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:1041] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX 1060 6GB, pci bus id: 0000:01:00.0)
+epoch 0
+batches 0, loss 318.829 (re: 590.687, kl: 46.9713)
+batches 100, loss 104.144 (re: 204.367, kl: 3.92111)
+batches 200, loss 106.909 (re: 204.28, kl: 9.5391)
+batches 300, loss 104.251 (re: 207.779, kl: 0.722914)
+batches 400, loss 102.685 (re: 204.994, kl: 0.37579)
+batches 500, loss 106.694 (re: 212.882, kl: 0.507069)
+batches 600, loss 109.088 (re: 211.054, kl: 7.12132)
+batches 700, loss 105.306 (re: 210.386, kl: 0.225927)
+batches 800, loss 101.537 (re: 202.999, kl: 0.0743591)
+batches 900, loss 101.01 (re: 201.327, kl: 0.691915)
+epoch 1
+batches 0, loss 103.893 (re: 207.718, kl: 0.068598)
+batches 100, loss 102.551 (re: 205.048, kl: 0.0529061)
+batches 200, loss 103.602 (re: 207.107, kl: 0.0965763)
+batches 300, loss 102.634 (re: 205.231, kl: 0.0377569)
+batches 400, loss 99.1911 (re: 198.348, kl: 0.0341495)
+batches 500, loss 98.9895 (re: 197.907, kl: 0.0718119)
+batches 600, loss 97.9358 (re: 195.812, kl: 0.059381)
+batches 700, loss 103.354 (re: 206.167, kl: 0.540411)
+batches 800, loss 101.013 (re: 201.947, kl: 0.0796681)
+batches 900, loss 102.4 (re: 204.733, kl: 0.0663887)
+epoch 2
+batches 0, loss 102.256 (re: 204.455, kl: 0.0566732)
+batches 100, loss 104.34 (re: 208.461, kl: 0.218525)
+batches 200, loss 100.464 (re: 200.917, kl: 0.0110089)
+batches 300, loss 101.916 (re: 203.829, kl: 0.00288071)
+batches 400, loss 103.285 (re: 206.566, kl: 0.00452766)
+batches 500, loss 103.125 (re: 206.244, kl: 0.00535347)
+batches 600, loss 103.343 (re: 206.674, kl: 0.011641)
+batches 700, loss 105.786 (re: 211.568, kl: 0.00315126)
+batches 800, loss 101.141 (re: 202.279, kl: 0.00416677)
+batches 900, loss 103.036 (re: 206.044, kl: 0.0286445)
+epoch 3
+batches 0, loss 103.586 (re: 207.168, kl: 0.00442554)
+batches 100, loss 99.7615 (re: 199.518, kl: 0.00507683)
+batches 200, loss 108.598 (re: 217.192, kl: 0.00361195)
+batches 300, loss 108.861 (re: 217.699, kl: 0.0225288)
+batches 400, loss 102.622 (re: 205.186, kl: 0.0581741)
+batches 500, loss 102.475 (re: 204.945, kl: 0.00500233)
+batches 600, loss 105.009 (re: 210.016, kl: 0.00283899)
+batches 700, loss 102.03 (re: 204.057, kl: 0.00266706)
+batches 800, loss 106.557 (re: 213.017, kl: 0.0973604)
+batches 900, loss 106.197 (re: 212.393, kl: 0.00193846)
+epoch 4
+batches 0, loss 102.623 (re: 205.244, kl: 0.00203753)
+batches 100, loss 100.032 (re: 199.811, kl: 0.253171)
+batches 200, loss 101.329 (re: 202.621, kl: 0.0359603)
+batches 300, loss 108.35 (re: 216.689, kl: 0.011624)
+batches 400, loss 100.544 (re: 201.072, kl: 0.0169702)
+batches 500, loss 105.099 (re: 210.17, kl: 0.0269787)
+batches 600, loss 100.432 (re: 200.86, kl: 0.00455074)
+batches 700, loss 102.643 (re: 205.283, kl: 0.00278587)
+batches 800, loss 102.327 (re: 204.585, kl: 0.0691193)
+batches 900, loss 104.957 (re: 209.894, kl: 0.0195823)
+epoch 5
+batches 0, loss 102.198 (re: 204.391, kl: 0.00500696)
+batches 100, loss 103.27 (re: 206.538, kl: 0.00158491)
+batches 200, loss 102.244 (re: 204.486, kl: 0.00314312)
+batches 300, loss 103.623 (re: 207.22, kl: 0.0262266)
+batches 400, loss 104.707 (re: 209.404, kl: 0.0103043)
+batches 500, loss 104.216 (re: 208.424, kl: 0.00758198)
+batches 600, loss 104.524 (re: 209.043, kl: 0.00454039)
+batches 700, loss 104.636 (re: 209.268, kl: 0.00394398)
+batches 800, loss 102.796 (re: 205.586, kl: 0.0063274)
+batches 900, loss 101.58 (re: 203.156, kl: 0.00375004)
+epoch 6
+batches 0, loss 104.907 (re: 209.81, kl: 0.00458126)
+batches 100, loss 98.6405 (re: 197.278, kl: 0.00335129)
+batches 200, loss 105.104 (re: 210.206, kl: 0.00270218)
+batches 300, loss 100.967 (re: 201.927, kl: 0.00689907)
+batches 400, loss 103.981 (re: 207.959, kl: 0.00328953)
+batches 500, loss 104.263 (re: 208.523, kl: 0.00192497)
+batches 600, loss 103.4 (re: 206.795, kl: 0.00447033)
+batches 700, loss 105.474 (re: 210.944, kl: 0.00331652)
+batches 800, loss 102.664 (re: 205.321, kl: 0.00804552)
+batches 900, loss 104.509 (re: 209.016, kl: 0.00177023)
+epoch 7
+batches 0, loss 99.8025 (re: 199.603, kl: 0.00152582)
+batches 100, loss 101.633 (re: 203.264, kl: 0.00154409)
+batches 200, loss 104.146 (re: 208.288, kl: 0.00301886)
+batches 300, loss 100.762 (re: 201.523, kl: 0.00107502)
+batches 400, loss 103.919 (re: 207.832, kl: 0.00659742)
+batches 500, loss 101.464 (re: 202.927, kl: 0.00146936)
+batches 600, loss 103.542 (re: 207.082, kl: 0.00156275)
+batches 700, loss 101.573 (re: 203.125, kl: 0.0195378)
+batches 800, loss 102.049 (re: 204.095, kl: 0.00213154)
+batches 900, loss 102.295 (re: 204.586, kl: 0.00449244)
+epoch 8
+batches 0, loss 101.342 (re: 202.676, kl: 0.00882023)
+batches 100, loss 106.549 (re: 213.097, kl: 0.00128723)
+batches 200, loss 104.878 (re: 209.754, kl: 0.00134249)
+batches 300, loss 103.479 (re: 206.954, kl: 0.00418522)
+batches 400, loss 103.92 (re: 207.836, kl: 0.00320162)
+batches 500, loss 102.08 (re: 204.154, kl: 0.00560783)
+batches 600, loss 100.96 (re: 201.907, kl: 0.0132309)
+batches 700, loss 101.821 (re: 203.637, kl: 0.00543463)
+batches 800, loss 102.623 (re: 205.2, kl: 0.0463545)
+batches 900, loss 103.371 (re: 206.74, kl: 0.0016843)
+epoch 9
+batches 0, loss 102.093 (re: 204.184, kl: 0.00211321)
+batches 100, loss 99.0563 (re: 198.106, kl: 0.00692329)
+batches 200, loss 122.709 (re: 205.313, kl: 40.1051)
+batches 300, loss 107.752 (re: 205.8, kl: 9.70488)
+batches 400, loss 103.589 (re: 206.394, kl: 0.783977)
+batches 500, loss 100.403 (re: 200.314, kl: 0.491134)
+batches 600, loss 105.07 (re: 209.544, kl: 0.59511)
+batches 700, loss 104.351 (re: 206.975, kl: 1.72655)
+batches 800, loss 104.28 (re: 208.048, kl: 0.512357)
+batches 900, loss 107.378 (re: 208.833, kl: 5.92393)
+epoch 10
+batches 0, loss 116.437 (re: 209.476, kl: 23.399)
+batches 100, loss 102.891 (re: 205.439, kl: 0.34357)
+batches 200, loss 105.824 (re: 211.16, kl: 0.488545)
+batches 300, loss 103.754 (re: 206.805, kl: 0.703464)
+batches 400, loss 104.254 (re: 207.824, kl: 0.684954)
+batches 500, loss 104.898 (re: 209.579, kl: 0.218093)
+batches 600, loss 102.488 (re: 204.783, kl: 0.192989)
+batches 700, loss 102.64 (re: 205.203, kl: 0.0778099)
+batches 800, loss 106.647 (re: 212.802, kl: 0.492843)
+batches 900, loss 99.1874 (re: 198.315, kl: 0.0598213)
+epoch 11
+batches 0, loss 101.344 (re: 202.667, kl: 0.0214018)
+batches 100, loss 103.652 (re: 207.29, kl: 0.0141124)
+batches 200, loss 103.6 (re: 207.186, kl: 0.013612)
+batches 300, loss 97.0993 (re: 194.194, kl: 0.00474943)
+batches 400, loss 100.2 (re: 200.396, kl: 0.00513027)
+batches 500, loss 105.226 (re: 210.43, kl: 0.0211733)
+batches 600, loss 105.016 (re: 210.028, kl: 0.00457832)
+batches 700, loss 103.983 (re: 207.964, kl: 0.00226095)
+batches 800, loss 104.156 (re: 208.3, kl: 0.0128582)
+batches 900, loss 104.24 (re: 208.475, kl: 0.00515499)
+epoch 12
+batches 0, loss 100.915 (re: 201.827, kl: 0.00209917)
+batches 100, loss 101.181 (re: 202.358, kl: 0.0039949)
+batches 200, loss 102.533 (re: 205.064, kl: 0.00274426)
+batches 300, loss 105.493 (re: 210.982, kl: 0.00343201)
+batches 400, loss 103.065 (re: 206.126, kl: 0.00290985)
+batches 500, loss 102.063 (re: 204.122, kl: 0.00397541)
+batches 600, loss 102.393 (re: 204.781, kl: 0.00388714)
+batches 700, loss 103.751 (re: 207.501, kl: 0.00115725)
+batches 800, loss 102.249 (re: 204.498, kl: 0.000736313)
+batches 900, loss 105.465 (re: 210.852, kl: 0.0773239)
+epoch 13
+batches 0, loss 101.686 (re: 199.862, kl: 3.51079)
+batches 100, loss 99.2435 (re: 198.366, kl: 0.121274)
+batches 200, loss 105.44 (re: 210.789, kl: 0.0918489)
+batches 300, loss 100.584 (re: 201.096, kl: 0.0707503)
+batches 400, loss 103.691 (re: 207.347, kl: 0.0343287)
+batches 500, loss 102.834 (re: 205.659, kl: 0.00921724)
+batches 600, loss 101.807 (re: 203.611, kl: 0.00336927)
+batches 700, loss 100.784 (re: 201.559, kl: 0.00868328)
+batches 800, loss 107.248 (re: 214.494, kl: 0.00170389)
+batches 900, loss 102.287 (re: 204.569, kl: 0.00537773)
+epoch 14
+batches 0, loss 102.483 (re: 204.89, kl: 0.0756138)
+batches 100, loss 102.952 (re: 205.891, kl: 0.0123163)
+batches 200, loss 104.514 (re: 209.023, kl: 0.00466759)
+batches 300, loss 102.991 (re: 205.978, kl: 0.00317646)
+batches 400, loss 105.666 (re: 211.33, kl: 0.00221498)
+batches 500, loss 104.13 (re: 208.259, kl: 0.00116558)
+batches 600, loss 103.056 (re: 206.111, kl: 0.000786362)
+batches 700, loss 103.774 (re: 207.546, kl: 0.00132683)
+batches 800, loss 104.59 (re: 209.174, kl: 0.00564018)
+batches 900, loss 104.38 (re: 208.758, kl: 0.000969563)
+epoch 15
+batches 0, loss 105.148 (re: 210.294, kl: 0.00114861)
+batches 100, loss 108.928 (re: 217.855, kl: 0.000577354)
+batches 200, loss 103.999 (re: 207.996, kl: 0.00124136)
+batches 300, loss 101.679 (re: 203.357, kl: 0.000644665)
+batches 400, loss 102.037 (re: 204.074, kl: 0.000430603)
+batches 500, loss 101.253 (re: 202.504, kl: 0.00182182)
+batches 600, loss 103.151 (re: 206.302, kl: 0.000443249)
+batches 700, loss 102.548 (re: 205.095, kl: 0.000342293)
+batches 800, loss 100.964 (re: 201.922, kl: 0.00576937)
+batches 900, loss 99.8716 (re: 199.743, kl: 0.000423088)
+epoch 16
+batches 0, loss 102.303 (re: 204.596, kl: 0.0106821)
+batches 100, loss 99.6558 (re: 199.31, kl: 0.00171726)
+batches 200, loss 102.425 (re: 204.85, kl: 0.00117033)
+batches 300, loss 105.474 (re: 203.977, kl: 6.97167)
+batches 400, loss 101.734 (re: 203.173, kl: 0.295021)
+batches 500, loss 104.64 (re: 209.014, kl: 0.265203)
+batches 600, loss 100.651 (re: 201.11, kl: 0.192388)
+batches 700, loss 107.539 (re: 215.069, kl: 0.00905626)
+batches 800, loss 101.164 (re: 202.326, kl: 0.00293028)
+batches 900, loss 100.756 (re: 201.509, kl: 0.00186569)
+epoch 17
+batches 0, loss 103.988 (re: 207.974, kl: 0.00223211)
+batches 100, loss 102.095 (re: 204.186, kl: 0.00295773)
+batches 200, loss 102.983 (re: 205.963, kl: 0.0023675)
+batches 300, loss 97.3646 (re: 194.516, kl: 0.213098)
+batches 400, loss 103.284 (re: 206.492, kl: 0.0765076)
+batches 500, loss 102.382 (re: 204.73, kl: 0.0332119)
+batches 600, loss 102.607 (re: 205.198, kl: 0.0167991)
+batches 700, loss 101.409 (re: 202.811, kl: 0.00762051)
+batches 800, loss 106.352 (re: 212.699, kl: 0.00450079)
+batches 900, loss 106.636 (re: 213.267, kl: 0.00465113)
+epoch 18
+batches 0, loss 102.4 (re: 204.798, kl: 0.00188854)
+batches 100, loss 105.021 (re: 210.041, kl: 0.00156563)
+batches 200, loss 99.624 (re: 199.247, kl: 0.00150242)
+batches 300, loss 99.6714 (re: 199.342, kl: 0.00121157)
+batches 400, loss 106.063 (re: 212.124, kl: 0.000941334)
+batches 500, loss 99.3839 (re: 198.767, kl: 0.00114349)
+batches 600, loss 104.379 (re: 208.758, kl: 0.000930195)
+batches 700, loss 105.141 (re: 210.281, kl: 0.0022353)
+batches 800, loss 106.194 (re: 212.388, kl: 0.000490665)
+batches 900, loss 105.816 (re: 211.63, kl: 0.00110456)
+epoch 19
+batches 0, loss 104.411 (re: 208.822, kl: 0.000719471)
+batches 100, loss 105.816 (re: 211.625, kl: 0.00653233)
+batches 200, loss 103.116 (re: 206.232, kl: 0.000758572)
+batches 300, loss 104.553 (re: 209.105, kl: 0.000596714)
+batches 400, loss 104.244 (re: 208.484, kl: 0.00330601)
+batches 500, loss 103.453 (re: 206.905, kl: 0.00122719)
+batches 600, loss 106.99 (re: 213.979, kl: 0.00117443)
+batches 700, loss 103.233 (re: 206.465, kl: 0.000744438)
+batches 800, loss 97.0337 (re: 194.066, kl: 0.00130178)
+batches 900, loss 104.831 (re: 209.661, kl: 0.000631962)
+QXcbConnection: Failed to initialize XRandr
+Qt: XKEYBOARD extension not present on the X server.
+Qt: Could not determine keyboard configuration data from X server, will use hard-coded keymap configuration.
+Qt: Failed to compile a keymap!
+Current XKB configuration data search paths are: 
+/home/snowkylin/anaconda2/envs/tensorflow/lib
+Use QT_XKB_CONFIG_ROOT environmental variable to provide an additional search path, add ':' as separator to provide several search paths and/or make sure that XKB configuration data directory contains recent enough contents, to update please see http://cgit.freedesktop.org/xkeyboard-config/ .
+
+Process finished with exit code 0
+

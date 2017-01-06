@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 parser = argparse.ArgumentParser()
 parser.add_argument('--type', type=str, default='RNN',
                     help='CNN or RNN')
-parser.add_argument('--mode', type=str, default='x with x_hat and h_dec_prev',
-                    help='(Only for RNN) only c_prev, only x_hat, x with x_hat, x with x_hat and h_dec_prev')
+parser.add_argument('--mode', type=str, default='only c_sigmoid',
+                    help='(Only for RNN) only c_prev, only c_sigmoid, only x_hat, x with x_hat, x with x_hat and h_dec_prev')
 parser.add_argument('--x_size', type=int, default=784,
                     help='size of x')
 parser.add_argument('--z_size', type=int, default=50,
@@ -24,9 +24,9 @@ parser.add_argument('--T', type=int, default=10,
                     help='size of time T (only for rnn vae)')
 parser.add_argument('--batch_size', type=int, default=100,
                     help='batch size')
-parser.add_argument('--learning_rate', type=float, default=0.001,
+parser.add_argument('--learning_rate', type=float, default=0.005,
                     help='learning rate')
-parser.add_argument('--alpha', type=float, default=0.95,
+parser.add_argument('--alpha', type=float, default=0.5,
                     help='ratio between re_loss and kl_loss '
                          '(args.alpha * self.re_loss + (1 - args.alpha) * self.kl_loss)')
 parser.add_argument('--num_epochs', type=int, default=20,
@@ -57,11 +57,11 @@ with tf.Session() as sess:
             sess.run(model.optimizer, feed_dict={model.x: x})
             if b % 100 == 0:
                 print 'batches %d, loss %g (re: %g, kl: %g)' % (b, loss, re_loss, kl_loss)
-    batch = mnist.train.next_batch(args.batch_size)
+    batch = mnist.test.next_batch(args.batch_size)
     x = np.reshape(batch[0], [args.batch_size, args.width, args.height, 1])
     if args.type == 'CNN':
         decoded = sess.run(model.decoded, feed_dict={model.x: x})
-        n = args.batch_size
+        n = 10
         for i in range(n):
             axes = plt.subplot(2, n, i + 1)
             axes.set_xticks([])
